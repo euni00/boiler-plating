@@ -31,7 +31,8 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+# 프로젝트 구축 후 .env ignore
+# .env*
 
 # vercel
 .vercel
