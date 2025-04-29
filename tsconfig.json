@@ -22,6 +22,7 @@
       "@icon/*": ["./src/assets/icons/*"],
       "@type/*": ["./src/common/types/*"],
       "@store/*": ["./src/store/*"],
+      "@util/*": ["./src/utils"],
       "@component/*": ["./src/components/*"],
       "@api/*": ["./src/api/*"],
       "@feature/*": ["./src/features/*"],
