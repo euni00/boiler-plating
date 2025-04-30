@@ -6,6 +6,14 @@ const nextConfig: NextConfig = {
     config.resolve.alias["@"] = path.resolve(__dirname, "src");
     return config;
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "https:/domain/api/v1/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
