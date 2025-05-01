@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 푸시 전에 코드 품질 검사를 시작합니다."
+
+npm run lint || { echo "❌ Lint 에러(push 중단됨)"; exit 1; }
+npx tsc --noEmit || { echo "❌ Type 에러(push 중단됨)"; exit 1; }
+
+# Cypress 세팅 전
+# echo "🚀 dev 서버 실행 중..."
+# npm run dev &
+# npx wait-on http://localhost:3000
+# npx cypress run || { echo "❌ Cypress 테스트 실패(push 중단됨)"; kill $!; exit 1; }
+# kill $!
+
+echo "✅ push를 위한 모든 검사를 통과했습니다. 🚀"
