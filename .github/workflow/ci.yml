@@ -1,0 +1,55 @@
+name: 🔍 Code Quality Verification
+
+on:
+  pull_request:
+    branches: [main, dev]
+  push:
+    branches: [main, dev]
+
+jobs:
+  check-code-quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🧹 Run ESLint
+        run: npm run lint
+
+      - name: 🧪 Run TypeScript type check
+        run: npx tsc --noEmit
+
+      - name: 🛠️ Run Next.js build
+        run: npm run build
+
+      - name: 💬 Create PR comment on failure
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `❌ **PR 자동 검증에 실패했습니다.**
+
+다음 항목 중 하나 이상에서 오류가 발생했을 수 있습니다:
+- ESLint 검사
+- TypeScript 타입 체크
+- Cypress E2E 테스트
+
+🔍 [Actions 탭에서 상세 로그 확인하기](https://github.com/${{ github.repository }}/actions)
+
+코드 품질 향상을 위해 검토 후 다시 커밋 부탁드립니다. 감사합니다! 🙏`
+            })
+
