@@ -1,0 +1,42 @@
+name: 🐛 Bug Report
+description: 버그를 발견했을 때 사용하는 템플릿입니다.
+title: "[BUG] <언제> <어떤 동작에서> <무엇이 잘못되는지> (ex: 로그인 버튼 클릭 시 메인 페이지로 이동하지 않는 현상)"
+labels: [bug]
+body:
+  - type: input
+    id: environment
+    attributes:
+      label: 👩🏻‍💻 환경 정보
+      description: 브라우저, 운영체제 등 환경을 작성해주세요.
+      placeholder: macOS Sequoia 15.4.1 Chrome
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 🔁 재현 방법
+      description: 버그를 어떻게 재현할 수 있는지 단계별로 설명해주세요.
+      placeholder: |
+        1. [기능 또는 페이지]로 이동합니다. (ex: 로그인 페이지)
+        2. [행동]을 수행합니다. (ex: 로그인 버튼 클릭)
+        3. [예상과 다른 실제 결과]를 확인합니다. (ex: 페이지가 갱신되지 않음)
+        4. [관련 로그/오류]가 있다면 명시합니다. (ex: console에 404 Not Found 발생)
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ 기대 동작
+      description: 원래 기대했던 동작을 작성해주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 🖼️ 스크린샷
+      description: 가능하다면 버그를 보여주는 이미지를 첨부해주세요.
+  - type: textarea
+    id: etc
+    attributes:
+      label: ❗️ 참고사항
+      description: 참고할만한 추가 정보가 있다면 자유롭게 작성해주세요.

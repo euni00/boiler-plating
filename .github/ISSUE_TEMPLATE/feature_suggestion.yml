@@ -1,0 +1,27 @@
+name: ✨ Feature Suggestion
+description: 새로운 기능이나 개선을 제안할 때 사용하는 템플릿입니다.
+title: '[FEAT] <추가할 기능 요약> (ex: 챗봇 기능 추가)'
+labels: [enhancement]
+body:
+  - type: textarea
+    id: background
+    attributes:
+      label: 📚 제안 이유 & 문제 상황
+      description: 이 기능이 필요한 이유나 문제 상황을 설명해주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 제안 내용
+      description: 어떤 방식으로 추가하거나 개선하고 싶은지 상세히 작성해주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: todo
+    attributes:
+      label: 📌 예상 작업 목록
+      description: 어떤 내용을 추가 또는 수정해야 하는지 체크리스트로 작성해주세요. 함께 작업하는 팀원이 쉽게 파악할 수 있도록 관련 파일도 함께 적어주시면 좋습니다.
+      placeholder: |
+        - [ ] 작업 1
+        - [ ] 작업 2
