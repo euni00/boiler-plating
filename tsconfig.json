@@ -1,18 +1,31 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "ESNext",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
     "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
     "plugins": [
       {
         "name": "next"
@@ -22,13 +35,13 @@
       "@icon/*": ["./src/assets/icons/*"],
       "@type/*": ["./src/common/types/*"],
       "@store/*": ["./src/store/*"],
-      "@util/*": ["./src/utils"],
+      "@util/*": ["./src/utils/*"],
       "@component/*": ["./src/components/*"],
       "@api/*": ["./src/api/*"],
       "@feature/*": ["./src/features/*"],
       "@hook/*": ["./src/hooks/*"],
       "@constant/*": ["./src/constants/*"]
-    }
+    },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
