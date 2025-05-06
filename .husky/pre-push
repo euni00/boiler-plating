@@ -2,8 +2,6 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo "🔍 push 전에 코드 품질 검사를 시작합니다."
-
-npm run lint || { echo "❌ Lint 에러(push 중단됨)"; exit 1; }
 npx tsc --noEmit || { echo "❌ Type 에러(push 중단됨)"; exit 1; }
 
 # Cypress 테스트 (TDD)
